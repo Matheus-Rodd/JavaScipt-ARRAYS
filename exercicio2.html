@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Organizar Lista de Animais</title>
+</head>
+<body>
+    <h1>Exercício 2: Organizar Lista de Animais</h1>
+    <p>Lista de animais atualizada:</p>
+    <div id="resultado2"></div>
+
+    <script>
+        let animais = ["Gato", "Cachorro", "Pássaro"];
+        animais.push("Elefante"); // Adiciona "Elefante" ao final
+        animais.splice(animais.indexOf("Gato"), 1); // Remove o "Gato"
+        document.getElementById("resultado2").textContent = animais.join(", "); // Exibe a lista atualizada
+    </script>
+
+    <br><br>
+    <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+</body>
+</html>

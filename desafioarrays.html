@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ingredientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .ingredient-list {
+            margin-bottom: 20px;
+        }
+
+        .ingredient-list label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .ingredients-output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .clear-button {
+            background-color: #f44336;
+            margin-top: 20px;
+        }
+
+        .clear-button:hover {
+            background-color: #e53935;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Selecione os Ingredientes</h1>
+        <p>Escolha os ingredientes necessários para sua receita:</p>
+
+        <div class="ingredient-list">
+            <label><input type="checkbox" value="Feijão"> Feijão</label>
+            <label><input type="checkbox" value="Arroz"> Arroz</label>
+            <label><input type="checkbox" value="Batata"> Batata</label>
+            <label><input type="checkbox" value="Macarrão"> Macarrão</label>
+            <label><input type="checkbox" value="Carne"> Carne</label>
+            <label><input type="checkbox" value="Alho"> Alho</label>
+            <label><input type="checkbox" value="Tomate"> Tomate</label>
+        </div>
+
+        <button id="showIngredients">Exibir Ingredientes Selecionados</button>
+
+        <div class="ingredients-output" id="output"></div>
+
+        <button class="clear-button" id="clearSelection">Limpar Seleções</button>
+    </div>
+
+    <script>
+        // Lógica para exibir os ingredientes selecionados
+        document.getElementById("showIngredients").addEventListener("click", function() {
+            let selectedIngredients = [];
+            // Seleciona todos os checkboxes
+            const checkboxes = document.querySelectorAll('.ingredient-list input[type="checkbox"]:checked');
+
+            checkboxes.forEach(function(checkbox) {
+                // Adiciona o valor do checkbox à lista de ingredientes selecionados
+                selectedIngredients.push(checkbox.value);
+            });
+
+            // Exibe os ingredientes selecionados ou uma mensagem caso não tenha sido selecionado nenhum
+            const output = document.getElementById("output");
+            if (selectedIngredients.length > 0) {
+                output.textContent = "Ingredientes selecionados: " + selectedIngredients.join(", ");
+            } else {
+                output.textContent = "Nenhum ingrediente selecionado.";
+            }
+        });
+
+        // Lógica para limpar as seleções
+        document.getElementById("clearSelection").addEventListener("click", function() {
+            // Desmarcar todos os checkboxes
+            const checkboxes = document.querySelectorAll('.ingredient-list input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
+
+            // Limpa a exibição de ingredientes selecionados
+            document.getElementById("output").textContent = "";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1 - Atualizar Catálogo de Cores</title>
+</head>
+<body>
+    <h1>Exercício 1: Atualizar Catálogo de Cores</h1>
+    <p>Resultado da terceira cor após alteração:</p>
+    <div id="resultado1"></div>
+
+    <script>
+        let cores = ["Vermelho", "Verde", "Azul"];
+        cores[1] = "Amarelo"; // Substitui "Verde" por "Amarelo"
+        document.getElementById("resultado1").textContent = cores[2]; // Exibe a terceira cor
+    </script>
+
+    <br><br>
+    <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+</body>
+</html>
